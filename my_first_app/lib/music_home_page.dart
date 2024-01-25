@@ -19,11 +19,26 @@ class _MusicHomePageState extends State<MusicHomePage> {
     NotificationsPage(),
     SettingsPage()
   ];
-
+  final GlobalKey<ScaffoldState>_scaffoldState =GlobalKey<ScaffoldState>();
+// This is for the darwer
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldState, 
+      // Bring the global key here
       backgroundColor: Colors.black,
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        width: 240,
+        child: Column(
+          children: [
+            DrawerHeader(child: ListTile(
+              title: Text("Fred"),
+            ))
+
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
@@ -49,12 +64,16 @@ class _MusicHomePageState extends State<MusicHomePage> {
         elevation: 4,
         backgroundColor: Colors.black,
         leadingWidth: 150,
-        leading: const Padding(
+        leading: Padding(
           padding: EdgeInsets.symmetric(horizontal: 8),
-          child: Text(
-            "Tracks",
-            style: TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+          child: GestureDetector(
+            onTap: () {
+              _scaffoldState.currentState!.openDrawer();          },
+            child: Text(
+              "Tracks",
+              style: TextStyle(
+                  color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),
