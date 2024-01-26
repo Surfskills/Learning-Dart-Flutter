@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/home_screen.dart';
+import 'package:my_first_app/list_sample.dart';
+
 import 'package:my_first_app/listing_objects.dart';
-import 'package:my_first_app/splash_screen.dart';
+import 'package:my_first_app/music_list_page.dart';
+import 'package:my_first_app/schedule.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,7 +19,8 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
       routes: <String, WidgetBuilder> {
         "/": (context)=> const ListingObjects(),
-        "/home_screen": (context)=> const HomeScreen(),
+        "/": (context)=> const Schedule(),
+     
   }
   );
   }
